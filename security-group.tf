@@ -8,7 +8,7 @@ resource "aws_security_group" "acesso-ssh" {
     protocol    = "tcp"
 
     # This is an example, put your real IP here
-    cidr_blocks = ["191.32.154.79/32"]
+    cidr_blocks = var.CIDR-access-remote
   }
 
   tags = {

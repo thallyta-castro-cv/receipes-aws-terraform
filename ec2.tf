@@ -1,21 +1,8 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0"
-    }
-  }
-}
-
-provider "aws" {
-  region = "us-east-1"
-}
-
 resource "aws_instance" "dev" {
   count = 3
-  ami = "ami-026c8acd92718196b"
+  ami = var.ami["us-east-1"]
   instance_type = "t2.micro"
-  key_name = "terraform-aws"
+  key_name = var.key-name
   vpc_security_group_ids = ["${aws_security_group.acesso-ssh.id}"]
   
   tags = {
@@ -23,14 +10,27 @@ resource "aws_instance" "dev" {
   }
 }
 
-resource "aws_instance" "dev-lab" {
-  ami = "ami-026c8acd92718196b"
+resource "aws_instance" "dev-lab-s3" {
+  ami = var.ami["us-east-1"]
   instance_type = "t2.micro"
-  key_name = "terraform-aws"
+  key_name = var.key-name
   vpc_security_group_ids = ["${aws_security_group.acesso-ssh.id}"]
   depends_on = [aws_s3_bucket.dev-lab]
   
   tags = {
-    Name = "dev-lab"
+    Name = "dev-lab-s3"
   }
+}
+
+resource "aws_instance" "dev-lab-dynamodb" {
+  ami = var.ami["us-east-1"]
+  instance_type = "t2.micro"
+  key_name = var.key-name
+  
+  tags = {
+    Name = "dev-lab-dynamodb"
+  }
+
+  vpc_security_group_ids = ["${aws_security_group.acesso-ssh.id}"]
+  depends_on = [aws_dynamodb_table.dynamodb-table-dev]
 }
