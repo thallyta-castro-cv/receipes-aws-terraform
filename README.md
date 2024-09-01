@@ -12,20 +12,29 @@ O repositório inclui exemplos para provisionamento de instâncias EC2, buckets 
 
 O objetivo principal deste repositório é servir como referência para consultas rápidas, permitindo a reutilização de configurações de Terraform em projetos futuros, com foco em infraestrutura como código e boas práticas.
 
-## Tecnologias Utilizadas
-
-| Tecnologia          | Função                                        | Descrição                                                                                                                                       | Arquivo/Configuração         |
-|---------------------|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| **AWS EC2**         | Computação em Nuvem                           | Criação e gerenciamento de instâncias EC2 para provisionamento de servidores na AWS.                                                            | `ec2.tf`                     |
-| **AWS S3**          | Armazenamento de Objetos                      | Configuração de buckets S3 para armazenamento seguro e escalável de dados.                                                                      | `s3.tf`                      |
-| **AWS Security Group** | Gerenciamento de Segurança                  | Definição de regras de segurança de rede para controle de tráfego de entrada e saída em instâncias EC2.                                          | `security-group.tf`          |
-| **AWS Provider**    | Integração com AWS                            | Configuração do provider da AWS para permitir o gerenciamento de recursos na nuvem.                                                             | `main.tf`                    |
-
 ## Organização dos Arquivos
 
-| Arquivo               | Descrição                                                                                                   |
-|-----------------------|-------------------------------------------------------------------------------------------------------------|
-| **main.tf**           | Contém a configuração básica do provider e região para a AWS.                                                |
-| **ec2.tf**            | Exemplo de criação de uma instância EC2 com parâmetros configuráveis como tipo de instância, chave SSH, etc. |
-| **s3.tf**             | Exemplo de criação de um bucket S3 com versionamento e criptografia habilitados.                             |
-| **security-group.tf**  | Exemplo de configuração de um grupo de segurança com regras para tráfego HTTP e SSH.                        |
+| Arquivo            | Descrição                                                                 |
+|--------------------|---------------------------------------------------------------------------|
+| **ec2.tf**         | Provisiona uma instância EC2 na AWS.                                      |
+| **s3.tf**          | Cria um bucket S3 com as configurações definidas.                         |
+| **security-group.tf** | Configura grupos de segurança para gerenciar o tráfego de rede.           |
+| **dynamodb.tf**    | Provisiona uma tabela DynamoDB com chaves de partição e opções de throughput. |
+| **variables.tf**   | Define as variáveis usadas em todo o projeto, como região, tipo de instância e nomes de recursos. |
+| **main.tf**        | Contém a configuração do provider e a definição da região utilizada.       |
+
+## Tecnologias Utilizadas
+
+- **Terraform**: Utilizado para o provisionamento de infraestrutura como código (IaC) na AWS.
+
+## Como Usar
+
+1. Clone este repositório.
+2. Modifique os arquivos conforme necessário para suas próprias configurações.
+3. Execute os comandos Terraform para provisionar os recursos na AWS:
+
+   
+   ```bash
+   terraform init
+   terraform plan
+   terraform apply
