@@ -16,7 +16,6 @@ O objetivo principal deste repositório é servir como referência para consulta
 
 | Tecnologia          | Função                                        | Descrição                                                                                                                                       | Arquivo/Configuração         |
 |---------------------|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| **Terraform**       | Provisionamento de Infraestrutura             | Terraform é uma ferramenta de IaC que permite criar, atualizar e gerenciar recursos na nuvem utilizando código declarativo.                     | `*.tf`                       |
 | **AWS EC2**         | Computação em Nuvem                           | Criação e gerenciamento de instâncias EC2 para provisionamento de servidores na AWS.                                                            | `ec2.tf`                     |
 | **AWS S3**          | Armazenamento de Objetos                      | Configuração de buckets S3 para armazenamento seguro e escalável de dados.                                                                      | `s3.tf`                      |
 | **AWS Security Group** | Gerenciamento de Segurança                  | Definição de regras de segurança de rede para controle de tráfego de entrada e saída em instâncias EC2.                                          | `security-group.tf`          |
