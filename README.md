@@ -38,3 +38,12 @@ O objetivo principal deste repositório é servir como referência para consulta
    terraform init
    terraform plan
    terraform apply
+   
+# Autor
+<b>Thallyta Macedo Carvalho de Castro</b>
+
+Linkedin: https://www.linkedin.com/in/thallyta-castro/
+
+Medium: https://medium.com/@thallyta-castro-cv
+
+email: contato@thallytacastro.com.br
